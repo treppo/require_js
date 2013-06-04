@@ -1,0 +1,10 @@
+bin/
+.bundle/
+tmp/
+log/*.log
+pkg/
+spec/rails_dummy/db/*.sqlite3
+spec/rails_dummy/db/*.sqlite3-journal
+spec/rails_dummy/log/*.log
+spec/rails_dummy/tmp/
+spec/rails_dummy/.sass-cache
