@@ -1,17 +1,14 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'spork' do
-  watch('Gemfile')
-  watch('Gemfile.lock')
-  watch('spec/spec_helper.rb') { :rspec }
-end
-
-guard :rspec, :cli => "--color --drb --format=documentation" do
+guard :rspec,
+  cli: "--color --drb --format=documentation --profile",
+  all_after_pass: true,
+  all_on_start: true do
   watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb')  { "spec" }
+  watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch('spec/spec_helper.rb') { "spec" }
 
-  watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
+  watch(%r{^spec/support/(.+)\.rb$}) { "spec" }
 end
 
