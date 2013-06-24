@@ -1,4 +1,6 @@
 require 'rubygems'
+require 'coveralls'
+Coveralls.wear!
 
 # add lib directory to the ruby search path
 $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
