@@ -7,7 +7,8 @@ describe RequireJs::Configuration do
     let(:path) { 'inavild/path' }
 
     it 'should raise an error' do
-      expect { configuration.parse path }.to raise_error RequireJs::ConfigFileMissingError
+      expect { configuration.parse path }.to raise_error
+        RequireJs::ConfigFileMissingError
     end
   end
 
